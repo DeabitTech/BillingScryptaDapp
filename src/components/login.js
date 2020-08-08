@@ -68,7 +68,6 @@ const Login = ()=> {
     const createWallet = async () =>{  
         let wallet;
         scryptaCore.testnet = false;
-        console.log(pass)
         if (pass !== undefined) {
             console.log("ma entro??")
             wallet = await scryptaCore.createAddress(pass)
@@ -95,13 +94,11 @@ const Login = ()=> {
     
     const getKeyWallet = async (pswd) =>{
         let sid = localStorage.getItem("SID");
-        console.log('sid', sid);
         let wallet = await scryptaCore.readKey(pswd, sid);
         setprvKey(wallet.prv);
         let pub = await scryptaCore.getPublicKey(wallet.prv);
         let address = await scryptaCore.getAddressFromPubKey(pub);
-        console.log(wallet, pub, address);
-
+       
     }
 
     const setVerify = async () =>{

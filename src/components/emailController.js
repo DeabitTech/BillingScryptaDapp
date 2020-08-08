@@ -24,10 +24,8 @@ export const EmailControllerSendEVerify = () => {
     }
 
     const verify = async (codVerifica,prv) =>{
-        console.log("sono dentro verify", codVerifica, localStorage.getItem("code"),prv)
         
         if(codVerifica === localStorage.getItem("code")){
-            console.log("entro dentro if di verify")
             let emailID = {
                 method: 'email',
                 username: localStorage.getItem("email"),
@@ -35,7 +33,6 @@ export const EmailControllerSendEVerify = () => {
             }
 
             await sign.signWithKey(prv, JSON.stringify(emailID)).then(signature => {
-                    console.log("sono dentro la signature",signature)
                     localStorage.setItem("sign",JSON.stringify({
                         success: {
                             identity: emailID,
@@ -54,19 +51,15 @@ export const EmailControllerSendEVerify = () => {
                     })*/
                 })
         }
-        console.log("vediamo la signature ",localStorage.getItem("sign"))
         return localStorage.getItem("sign");
     }
 
     const condizionalFunc = (condizione, codiceVerifica,prv)=>{
-        console.log("ma sono qui??")
         switch(condizione){
             case "send":
-                console.log("sono nel send")
                 return sendEmail()
                
             case "verify":
-                console.log("sono nel verify")
                 return verify(codiceVerifica,prv)
                 
         }

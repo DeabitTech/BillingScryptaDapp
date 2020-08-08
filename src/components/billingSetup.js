@@ -83,7 +83,6 @@ const BillingSetup = ()=> {
         setOpenModal(false)
     }
     const handleOpen = () =>{
-        console.log(localStorage.getItem("SID"))
         setOpenModal(true)
     }
 
