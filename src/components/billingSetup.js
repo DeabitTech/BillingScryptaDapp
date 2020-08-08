@@ -111,9 +111,9 @@ const BillingSetup = ()=> {
         let fattura = document.getElementById("fattura")
         html2pdf(fattura)
         let data = new Blob([cryptData], {type: 'text/plain'});
-        let csvURL = window.URL.createObjectURL(data);
+        let file = window.URL.createObjectURL(data);
         let tempLink = document.createElement('a');
-        tempLink.href = csvURL;
+        tempLink.href = file;
         tempLink.setAttribute('download', localStorage.getItem("uuid")+'.txt');
         tempLink.click();
         
