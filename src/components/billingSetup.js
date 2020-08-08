@@ -99,10 +99,10 @@ const BillingSetup = ()=> {
         let cryptData = await scryptaCore.cryptData(JSON.stringify(totalBillingValues),prv)
         console.log(cryptData)
         setOpenModal(false)
-        await printBilling()
+        await printBilling(cryptData)
     }
 
-    const printBilling = async () =>{
+    const printBilling = async (cryptData) =>{
         setDisableFieldsAccount(true)
         setDisableFieldsOpt(true)
         setDisableFieldsProd(true)
@@ -110,6 +110,12 @@ const BillingSetup = ()=> {
         document.getElementById("invFattura").style.visibility="hidden";
         let fattura = document.getElementById("fattura")
         html2pdf(fattura)
+        let data = new Blob([cryptData], {type: 'text/plain'});
+        let csvURL = window.URL.createObjectURL(data);
+        let tempLink = document.createElement('a');
+        tempLink.href = csvURL;
+        tempLink.setAttribute('download', localStorage.getItem("uuid")+'.txt');
+        tempLink.click();
         
     } 
     return(
