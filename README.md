@@ -1,13 +1,13 @@
-Project is a Base-line of Dapp with Seed Venture Protocol
+Project is a Base-line of Dapp with Scrypta Protocol Blockchain-Based
 
 You can starting with this base-line digit:
 
-##git clone https://github.com/DeabitTech/SeedVentureDapp.git
+`git clone https://github.com/DeabitTech/BillingScryptaDapp.git`
 
 After you downloading the project in local, install all dependencies:
 
-##yarn install
+`yarn install`
 
 Now you can starting the project
 
-##yarn start
+`yarn start`
