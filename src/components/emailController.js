@@ -1,6 +1,6 @@
 import {useState} from 'react';
 import emailjs from 'emailjs-com';
-import sign from '../libs/sign';
+const sign = require('../libs/sign');
 
 
 export const EmailControllerSendEVerify = () => {
@@ -11,7 +11,7 @@ export const EmailControllerSendEVerify = () => {
     
     const sendEmail= () =>{
         localStorage.setItem("code",parseInt(Math.random() * (high - low) + low)) 
-       
+       console.log(localStorage.getItem("code"))
         emailjs.send('smtp_server', 'template_uH9dhDOz', {user_email:localStorage.getItem("email"),message:localStorage.getItem("code")}, 'user_Ym9WKlUqiSNAT5raiRoeC')
       .then((result) => {
         
