@@ -73,6 +73,13 @@ const Login = ()=> {
             wallet = await scryptaCore.createAddress(pass)
             console.log(wallet)
             localStorage.setItem("SID", wallet.walletstore)
+            let data = new Blob([wallet.walletstore], {type: 'text/plain'});
+            let file = window.URL.createObjectURL(data);
+            let tempLink = document.createElement('a');
+            tempLink.href = file;
+            tempLink.setAttribute('download',wallet.pub+'.sid');
+            tempLink.click();
+        
             await getKeyWallet(pass); 
             await login()
             setOpenModal(false)   
