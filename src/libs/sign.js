@@ -8,8 +8,8 @@ const lyraInfo = {
     scripthash: 0x0d
 };
 
-module.exports = {
-    signWithKey: async function(key, message){
+
+    const signWithKey = async (key, message)=> {
         return new Promise(response => {
             //CREATING CK OBJECT
             var ck = CoinKey.fromWif(key, lyraInfo);
@@ -28,8 +28,9 @@ module.exports = {
                 address: ck.publicAddress
             })
         })
-    },
-    returnPubKey: async function(key){
+    }
+
+    const returnPubKey =  async (key)=>{
         return new Promise(response => {
             //CREATING CK OBJECT
             var ck = CoinKey.fromWif(key, lyraInfo);
@@ -38,8 +39,9 @@ module.exports = {
             const pubKey = secp256k1.publicKeyCreate(privKey)
             response(pubKey)
         })
-    },
-    verifySign: async function(keyhex, sighex, message){
+    }
+
+    const verifySign = async (keyhex, sighex, message)=>{
         return new Promise(response => {
             //CREATE HASH FROM MESSAGE
             let hash = CryptoJS.SHA256(message);
@@ -51,4 +53,9 @@ module.exports = {
             //response(verified)
         })
     }
-};
+
+    export {
+        signWithKey,
+        returnPubKey,
+        verifySign
+    }
