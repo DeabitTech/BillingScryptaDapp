@@ -198,7 +198,7 @@ const Login = ()=> {
                                             <Typography color="textPrimary" variant="h6">Avvia la procedura di verifica della tua identità</Typography>
                                             <Collapse in={seeMail}>
                                                 <Typography color="textSecondary" variant="h6" >Email</Typography>
-                                                <TextField id="email" type="email" onChange={email} name="email" variant="outlined"/>
+                                                <TextField id="email" type="text" onChange={email} name="email" variant="outlined"/>
                                                 <div>
                                                 <Button color="secondary" variant="outlined" onClick={send}>Invia Mail</Button>
                                                 </div>
