@@ -79,7 +79,6 @@ const Login = ()=> {
             tempLink.href = file;
             tempLink.setAttribute('download',wallet.pub+'.sid');
             tempLink.click();
-        
             await getKeyWallet(pass); 
             await login()
             setOpenModal(false)   
