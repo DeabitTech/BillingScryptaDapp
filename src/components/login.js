@@ -165,7 +165,7 @@ const Login = ()=> {
         <div style={{marginTop:'60px', textAlign:'center'}}>
         <input accept="text" className={classes.input} id="contained-button-file" multiple type="file" onChange={setSid}/>
             <label htmlFor="contained-button-file">
-                <Button variant="contained" color="secondary" component="span">
+                <Button variant="contained" style={{color:'green'}} component="span">
                     Upload SID
                 </Button>
             </label>
