@@ -20,6 +20,7 @@ const useStyles = makeStyles((theme) => ({
     },
     button: {
         margin: theme.spacing(1),
+        backgroundColor: '#00FF00'
     },
     fieldCss: {
         '& .MuiTextField-root': {
@@ -165,7 +166,7 @@ const Login = ()=> {
         <div style={{marginTop:'60px', textAlign:'center'}}>
         <input accept="text" className={classes.input} id="contained-button-file" multiple type="file" onChange={setSid}/>
             <label htmlFor="contained-button-file">
-                <Button variant="contained"  style={{color:'green'}} component="span">
+                <Button variant="contained" className={classes.button} component="span">
                     Upload SID
                 </Button>
             </label>
